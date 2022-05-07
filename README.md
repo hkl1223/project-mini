@@ -35,3 +35,6 @@
 
     ` <car-num-input></car-num-input> `
 
+## carNumInput:
+
+![](https://s1.ax1x.com/2022/05/07/OQegvF.png)
