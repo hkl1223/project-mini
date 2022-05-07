@@ -1,0 +1,100 @@
+.banner {
+    height: 360rpx;
+    width: 100%;
+}
+
+.banner .bannerImg {
+    height: 360rpx;
+    width: 100%;
+}
+
+.mine {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.mine .mineCt {
+    display: flex;
+    width: 90%;
+    height: 130rpx;
+    background-color: #daebff;
+    margin-top: 30rpx;
+    border-radius: 100rpx;
+    align-items: center;
+    justify-content: center;
+}
+
+.mineImg {
+    margin-left: 30rpx;
+    width: 150rpx;
+    height: 150rpx;
+}
+
+.titleCt {
+    width: 70%;
+    margin: 0rpx 10rpx 15rpx 20rpx;
+}
+
+.titleCt .title {
+    color: #214481;
+    font-size: 32rpx;
+    font-weight: 1000;
+}
+
+.titleCt .des {
+    color: #3f5e95;
+    margin-top: 10rpx;
+    font-size: 26rpx;
+}
+
+.userImg {
+    width: 134rpx;
+    height: 100rpx;
+    margin: 10rpx 25rpx 0 0;
+}
+
+
+.headTitle {
+    margin: 30rpx 50rpx 30rpx 50rpx;
+    font-size: 40rpx;
+    font-weight: 800;
+}
+
+.content {
+    margin: 20rpx 32rpx 20rpx 32rpx;
+    display: flex;
+    background: #FFFFFF;
+    box-shadow: 2px 6px 12px 2px rgba(6, 15, 28, 0.050980392156862744);
+    border-radius: 20px;
+}
+
+.subTitle {
+    color: #283e7a;
+    font-size: 36rpx;
+    font-weight: 800;
+    margin-left: 30rpx;
+}
+
+.subDes {
+    color: #35426e;
+    font-size: 28rpx;
+    margin-left: 30rpx;
+}
+
+
+
+
+.footer {
+    margin: -150rpx 0 60rpx 0;
+    text-align: center;
+    font-size: 30rpx;
+}
+
+.footerDes {
+    color: #ccc;
+    font-size: 28rpx;
+    margin-top: 10rpx;
+}
+

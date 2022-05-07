@@ -1,0 +1,125 @@
+<view class="con-query">
+    <view class="plate-input-body">
+        <view class="plate-title">
+            <view> 请输入车牌号</view>
+            <view class="none-plate"> 无牌车缴费</view>
+        </view>
+        <view class="plate-input-content">
+            <view class="{{inputOnFocusIndex=='0'?'plate-nums-foc':'plate-nums-first'}}">
+                <text bindtap="inputClick" class="plate-num-text" data-id="0">{{inputPlates.index0}}</text>
+            </view>
+            <view class="{{inputOnFocusIndex=='1'?'plate-nums-foc':'plate-nums-first'}}">
+                <text bindtap="inputClick" class="plate-num-text" data-id="1">{{inputPlates.index1}}</text>
+            </view>
+            <view class="{{inputOnFocusIndex=='2'?'plate-nums-foc':'plate-nums-first'}}">
+                <text bindtap="inputClick" class="plate-num-text" data-id="2">{{inputPlates.index2}}</text>
+            </view>
+
+            <view class="{{inputOnFocusIndex=='3'?'plate-nums-foc':'plate-nums-first'}}">
+                <text bindtap="inputClick" class="plate-num-text" data-id="3">{{inputPlates.index3}}</text>
+            </view>
+            <view class="{{inputOnFocusIndex=='4'?'plate-nums-foc':'plate-nums-first'}}">
+                <text bindtap="inputClick" class="plate-num-text" data-id="4">{{inputPlates.index4}}</text>
+            </view>
+
+            <view class="{{inputOnFocusIndex=='5'?'plate-nums-foc':'plate-nums-first'}}">
+                <text bindtap="inputClick" class="plate-num-text" data-id="5">{{inputPlates.index5}}</text>
+            </view>
+            <view class="{{inputOnFocusIndex=='6'?'plate-nums-foc':'plate-nums-first'}}">
+                <text bindtap="inputClick" class="plate-num-text" data-id="6">{{inputPlates.index6}}</text>
+            </view>
+            <view class="{{inputOnFocusIndex=='7'?'plate-nums-foc':'plate-nums-first'}}" wx:if="{{isNewEnergy}}">
+                <text bindtap="inputClick" class="plate-num-text" data-id="7">{{inputPlates.index7}}</text>
+            </view>
+            <view class='plate-input-flag' bindtap='changeplate'>
+                <view wx:if="{{isNewEnergy}}" class="plate-nums-first new-energy">
+                    <image mode="scaleToFill" src="../../assets/reduce.png"></image>
+                    新能源
+                </view>
+                <view wx:if="{{!isNewEnergy}}" class="plate-nums-first energy ">
+                    <image mode="scaleToFill" src="../../assets/add.png"></image>
+                    新能源
+                </view>
+            </view>
+        </view>
+        <view class="pay">点击这里为渝A****41缴费</view>
+        <view class="payBtn" bindtap="payBtn">查询停车费</view>
+    </view>
+
+</view>
+
+<!-- 键盘弹框 -->
+<view class="keyboard" wx:if="{{isKeyboard}}">
+    <view class="kb_top">
+        <text catchtap="tapSpecBtn" data-index="1">确认</text>
+    </view>
+
+    <!-- 地区 -->
+    <view style="width:100%; text-align:center;" wx:if="{{isNumberKB}}">
+        <view style="width:99%;display:flex;text-align:center;margin:0 auto;padding-top: 10rpx;">
+            <view catchtap="tapKeyboard" class="td td_nor" data-index="{{idx}}" data-val="{{itemName}}" wx:if="{{idx<=9}}" wx:for="{{keyboard}}" wx:for-index="idx" wx:for-item="itemName" wx:key="{{itemName}}">
+                {{itemName}}
+            </view>
+        </view>
+        <view style="display:flex;text-align:center; width:99%;margin:0 auto">
+            <view catchtap="tapKeyboard" class="td td_nor" data-index="{{idx}}" data-val="{{itemName}}" wx:if="{{idx<=19&&idx>9}}" wx:for="{{keyboard}}" wx:for-index="idx" wx:for-item="itemName" wx:key="{{itemName}}">
+                {{itemName}}
+            </view>
+        </view>
+
+        <view style="display:flex;text-align:center; width:99%;margin:0 auto">
+            <view catchtap="tapKeyboard" class="td td_nor" data-index="{{idx}}" data-val="{{itemName}}" wx:if="{{idx<=29&&idx>19}}" wx:for="{{keyboard}}" wx:for-index="idx" wx:for-item="itemName" wx:key="{{itemName}}">
+                {{itemName}}
+            </view>
+        </view>
+
+        <view style="display:flex; width:80%;margin-left:15px;text-align:center;">
+            <view catchtap="tapKeyboard" class="td td_nor" data-index="{{idx}}" data-val="{{itemName}}" wx:if="{{idx>29}}" wx:for="{{keyboard}}" wx:for-index="idx" wx:for-item="itemName" wx:key="{{itemName}}">
+                {{itemName}}
+            </view>
+        </view>
+
+        <view bindtap="tapSpecBtn" class="del-first" data-index="0" hoverStartTime="0" hoverStayTime="80">
+            <image class="del-img" data-index="0" mode="scaleToFill" src="../../assets/delete.png"></image>
+        </view>
+    </view>
+
+    <!-- 数字及字母 -->
+    <view style="width:100%; text-align:center;" wx:if="{{!isNumberKB}}">
+        <view style="width:99%;display:flex;text-align:center;margin:0 auto;">
+            <view class="td td_num board_bg" wx:if="{{!tapNum&&idx<=9}}" wx:for="{{keyboardNumber}}" wx:for-index="idx" wx:for-item="itemName" wx:key="{{itemName}}">
+                {{itemName}}
+            </view>
+        </view>
+        <view style="width:99%;display:flex;text-align:center;margin:0 auto">
+            <view catchtap="tapKeyboard" class="td td_num" data-index="{{idx}}" data-val="{{itemName}}" wx:if="{{tapNum&&idx<=9}}" wx:for="{{keyboardNumber}}" wx:for-index="idx" wx:for-item="itemName" wx:key="{{itemName}}">
+                {{itemName}}
+            </view>
+        </view>
+
+        <view style="width:99%;display:flex;text-align:center;margin:0 auto">
+            <view catchtap="tapKeyboard" class="td td_num" data-index="{{idx}}" data-val="{{itemName}}" wx:if="{{idx>9&&idx<=19}}" wx:for="{{keyboardNumber}}" wx:for-index="idx" wx:for-item="itemName" wx:key="{{itemName}}">
+                {{itemName}}
+            </view>
+        </view>
+
+        <view style="width:90%;display:flex;text-align:center;margin:0 auto">
+            <view catchtap="tapKeyboard" class="td td_num" data-index="{{idx}}" data-val="{{itemName}}" wx:if="{{idx>19&&idx<=28}}" wx:for="{{keyboardNumber}}" wx:for-index="idx" wx:for-item="itemName" wx:key="{{itemName}}">
+                {{itemName}}
+            </view>
+
+        </view>
+        <view style="width:70%;display:flex;margin-left: 80rpx;">
+            <view catchtap="tapKeyboard" class="td td_num" data-index="{{idx}}" data-val="{{itemName}}" wx:if="{{idx>28}}" wx:for="{{keyboardNumber}}" wx:for-index="idx" wx:for-item="itemName" wx:key="{{itemName}}">
+                {{itemName}}
+            </view>
+
+        </view>
+
+        <view bindtap="tapSpecBtn" class="del-first" data-index="0" hoverClass="del-hover" hoverStartTime="0" hoverStayTime="80">
+            <image class="del-img" data-index="0" mode="scaleToFill" src="../../assets/delete.png"></image>
+        </view>
+
+    </view>
+
+</view>

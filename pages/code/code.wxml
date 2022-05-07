@@ -1,0 +1,25 @@
+<view>
+    <view class="banner">
+        <image class="bannerImg" mode="scaleToFill" src="../../assets/banner.jpg"></image>
+    </view>
+    <view class="mine">
+        <view class="mineCt">
+            <image class="mineImg" mode="scaleToFill" src="../../assets/mine.jpg"></image>
+            <view class="titleCt">
+                <view class="title">我的渝康码</view>
+                <view class="des">社区互信共享，提高出行效率</view>
+            </view>
+            <image class="userImg" mode="scaleToFill" src="../../assets/user.jpg"></image>
+        </view>
+    </view>
+    <yukangCode list="{{yukangCodeList}}" reportList="{{reportList}}" serverList="{{serverList}}" feverList="{{feverList}}"></yukangCode>
+
+    <yukangCode reportList="{{infoList}}"></yukangCode>
+
+
+    <view class="footer">
+        <view>资讯热线：023-12345</view>
+        <view class="footerDes">数据来源：国家政务服务平台、通信大数据行程</view>
+    </view>
+
+</view>
