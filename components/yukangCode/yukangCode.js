@@ -36,7 +36,7 @@ Component({
             let name = e.currentTarget.dataset.name
             let type = e.currentTarget.dataset.type
             console.log(name, type)
-            if (name == "apply") {
+            if (type == "apply") {
                 console.log('去申领页面')
             }
             if (type == "scan") {
