@@ -2,21 +2,21 @@
     <view class="yukangCodeBox" wx:for="{{list}}" wx:key="index">
         <image class="itemImg" mode="scaleToFill" src="{{item.img}}"></image>
         <!-- 两个 -->
-        <view wx:if="{{item.title.length ==2}}" class="twoTitle">
-            <view wx:for="{{item.title}}" wx:key="index" class="single">
-                {{item}}</view>
+        <view wx:if="{{item.type}}" class="twoTitle">
+            <view wx:for="{{item.title}}" wx:for-item="title" wx:key="index" data-name="{{title.name}}" data-type="{{title.type}}" class="single" bindtap="multipleClick">
+                {{title.name}}</view>
         </view>
         <!-- 一个没有翻译 -->
-        <view wx:if="{{item.title.length!==2 && !item.translate}}" class="title">{{item.title}}</view>
+        <view wx:if="{{!item.type && !item.translate}}" class="title" data-name="{{item.title}}" bindtap="singleClick">{{item.title}}</view>
         <!-- 翻译 -->
-        <view wx:if="{{item.translate}}" class="translate">
+        <view wx:if="{{item.translate}}" class="translate" data-name="{{item.title}}" bindtap="translateClick">
             <view class="title">{{item.title}}</view>
             <view class="translateText"> {{item.translate}}</view>
         </view>
     </view>
 
     <!-- 自主申报、防疫资讯 -->
-    <view wx:for="{{reportList}}" wx:key="index">
+    <view wx:for="{{reportList}}" wx:key="index" data-name="{{item.name}}" bindtap="reportClick">
         <view class="headTitle"> {{item.title}}</view>
         <view class="content">
             <image class="mineImg" mode="scaleToFill" src="{{item.img}}"></image>
@@ -29,7 +29,7 @@
 
     <!-- 便民服务 -->
     <view class="service">
-        <view class="serviceList" wx:for="{{serverList}}" wx:key="index">
+        <view class="serviceList" wx:for="{{serverList}}" wx:key="index" bindtap="serverClick" data-name="{{item.name}}">
             <view class="headTitle serviceTitle"> {{item.title}} </view>
             <view class="serviceCt">
                 <view class="serviceBox">
@@ -43,7 +43,7 @@
 
     <!-- 发热门诊 -->
     <view class="fever">
-        <view class="feverList" wx:for="{{feverList}}" wx:key="index">
+        <view class="feverList" wx:for="{{feverList}}" wx:key="index" bindtap="feverClick" data-name="{{item.name}}">
             <view class="headTitle feverTitle"> {{item.title}}</view>
             <view class="feverCt">
                 <view class="feverBox" style=" border-top: 5px solid {{item.color}} ">

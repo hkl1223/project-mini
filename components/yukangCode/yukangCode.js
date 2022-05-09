@@ -32,7 +32,41 @@ Component({
      * 组件的方法列表
      */
     methods: {
-
+        multipleClick(e) {
+            let name = e.currentTarget.dataset.name
+            let type = e.currentTarget.dataset.type
+            console.log(name, type)
+            if (name == "apply") {
+                console.log('去申领页面')
+            }
+            if (type == "scan") {
+                wx.scanCode({
+                    success(res) {
+                        console.log(res)
+                    }
+                })
+            }
+        },
+        singleClick(e) {
+            let name = e.currentTarget.dataset.name
+            console.log(name)
+        },
+        translateClick(e) {
+            let name = e.currentTarget.dataset.name
+            console.log(name)
+        },
+        reportClick(e) {
+            let name = e.currentTarget.dataset.name
+            console.log(name)
+        },
+        serverClick(e) {
+            let name = e.currentTarget.dataset.name
+            console.log(name)
+        },
+        feverClick(e) {
+            let name = e.currentTarget.dataset.name
+            console.log(name)
+        }
 
     }
 

@@ -18,8 +18,17 @@ Page({
                 title: "通信大数据行程卡"
             },
             {
+                type: "multiple",
                 img: "/assets/3.jpg",
-                title: ['申领', '扫描']
+                title: [{
+                        name: "申领",
+                        type: "apply"
+                    },
+                    {
+                        name: "扫描",
+                        type: "scan"
+                    }
+                ]
             },
             {
                 img: "/assets/3.jpg",
@@ -31,8 +40,17 @@ Page({
                 translate: "Health declaration of Hong Kong, Macao, Taiwan and foreigners"
             },
             {
+                type: "multiple",
                 img: "/assets/3.jpg",
-                title: ['医保服务', '公交乘车']
+                title: [{
+                        name: "医保服务",
+                        type: "service"
+                    },
+                    {
+                        name: "公交乘车",
+                        type: "bus"
+                    }
+                ]
             },
             {
                 img: "/assets/3.jpg",
@@ -100,7 +118,7 @@ Page({
      * 生命周期函数--监听页面显示
      */
     onShow: function () {
-       
+
     },
 
     /**
