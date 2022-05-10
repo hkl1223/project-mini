@@ -91,6 +91,7 @@ page {
   font-weight: 700;
   text-align: center;
   font-family: SimHei;
+  font-size: 28rpx;
 }
 
 .payBtn {

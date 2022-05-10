@@ -76,7 +76,7 @@ Component({
             t.target.dataset.index;
             var a = t.target.dataset.val;
             //console.log("data",this.data);
-            //console.log('键盘:',a);
+            // console.log('键盘:',a);
             //console.log("index",t.target.dataset.index);
             //console.log("focus",this.data.inputOnFocusIndex);
             switch (parseInt(this.data.inputOnFocusIndex)) {
