@@ -61,13 +61,13 @@
                 {{itemName}}
             </view>
         </view>
-        <view style="display:flex;text-align:center; width:99%;margin:0 auto">
+        <view style="display:flex;text-align:center; width:96%;margin:0 auto">
             <view catchtap="tapKeyboard" class="td td_nor" data-index="{{idx}}" data-val="{{itemName}}" wx:if="{{idx<=19&&idx>9}}" wx:for="{{keyboard}}" wx:for-index="idx" wx:for-item="itemName" wx:key="{{itemName}}">
                 {{itemName}}
             </view>
         </view>
 
-        <view style="display:flex;text-align:center; width:99%;margin:0 auto">
+        <view style="display:flex;text-align:center; width:93%;margin:0 auto">
             <view catchtap="tapKeyboard" class="td td_nor" data-index="{{idx}}" data-val="{{itemName}}" wx:if="{{idx<=29&&idx>19}}" wx:for="{{keyboard}}" wx:for-index="idx" wx:for-item="itemName" wx:key="{{itemName}}">
                 {{itemName}}
             </view>
@@ -97,7 +97,7 @@
             </view>
         </view>
 
-        <view style="width:99%;display:flex;text-align:center;margin:0 auto">
+        <view style="width:96%;display:flex;text-align:center;margin:0 auto">
             <view catchtap="tapKeyboard" class="td td_num" data-index="{{idx}}" data-val="{{itemName}}" wx:if="{{idx>9&&idx<=19}}" wx:for="{{keyboardNumber}}" wx:for-index="idx" wx:for-item="itemName" wx:key="{{itemName}}">
                 {{itemName}}
             </view>
