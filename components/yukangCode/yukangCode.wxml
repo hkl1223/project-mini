@@ -7,30 +7,37 @@
                 {{title.name}}</view>
         </view>
         <!-- 一个没有翻译 -->
-        <view wx:if="{{!item.type && !item.translate}}" class="title" data-name="{{item.title}}" bindtap="singleClick">{{item.title}}</view>
+        <view wx:if="{{!item.type && !item.translate}}" class="title" data-name="{{item.title}}" bindtap="singleClick">
+            <view wx:for="{{item.title}}" wx:for-item="title" wx:key="index" data-name="{{title.name}}" data-type="{{title.type}}">
+                {{title.name}}</view>
+        </view>
         <!-- 翻译 -->
         <view wx:if="{{item.translate}}" class="translate" data-name="{{item.title}}" bindtap="translateClick">
-            <view class="title">{{item.title}}</view>
+            <view class="title" wx:for="{{item.title}}" wx:for-item="title" wx:key="index" data-name="{{title.name}}" data-type="{{title.type}}">
+                <view>{{title.name}}</view>
+            </view>
             <view class="translateText"> {{item.translate}}</view>
         </view>
     </view>
 
     <!-- 自主申报、防疫资讯 -->
-    <view wx:for="{{reportList}}" wx:key="index" data-name="{{item.name}}" bindtap="reportClick">
-        <view class="headTitle"> {{item.title}}</view>
-        <view class="content">
-            <image class="mineImg" mode="scaleToFill" src="{{item.img}}"></image>
-            <view>
-                <view class="subTitle">{{item.name}}</view>
-                <view class="subDes">{{item.des}}</view>
+    <view>
+        <view class="headTitle">{{reportTitle}}</view>
+        <view wx:for="{{reportList}}" wx:key="index" data-name="{{item.name}}" bindtap="reportClick">
+            <view class="content">
+                <image class="mineImg" mode="scaleToFill" src="{{item.img}}"></image>
+                <view>
+                    <view class="subTitle">{{item.name}}</view>
+                    <view class="subDes">{{item.des}}</view>
+                </view>
             </view>
         </view>
     </view>
 
     <!-- 便民服务 -->
     <view class="service">
+        <view class="headTitle serviceTitle"> {{serverTitle}} </view>
         <view class="serviceList" wx:for="{{serverList}}" wx:key="index" bindtap="serverClick" data-name="{{item.name}}">
-            <view class="headTitle serviceTitle"> {{item.title}} </view>
             <view class="serviceCt">
                 <view class="serviceBox">
                     <view class="serviceName">{{item.name}}</view>
@@ -43,8 +50,8 @@
 
     <!-- 发热门诊 -->
     <view class="fever">
+        <view class="headTitle feverTitle"> {{feverTitle}}</view>
         <view class="feverList" wx:for="{{feverList}}" wx:key="index" bindtap="feverClick" data-name="{{item.name}}">
-            <view class="headTitle feverTitle"> {{item.title}}</view>
             <view class="feverCt">
                 <view class="feverBox" style=" border-top: 5px solid {{item.color}} ">
                     <image class="feverImg" mode="scaleToFill" src="{{item.img}}"></image>

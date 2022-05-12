@@ -12,9 +12,9 @@
             <image class="userImg" mode="scaleToFill" src="../../assets/user.jpg"></image>
         </view>
     </view>
-    <yukangCode list="{{yukangCodeList}}" reportList="{{reportList}}" serverList="{{serverList}}" feverList="{{feverList}}"></yukangCode>
+    <yukangCode list="{{yukangCodeList}}" reportTitle="{{reportTitle}}" reportList="{{reportList}}" serverTitle="{{serverTitle}}" serverList="{{serverList}}" feverTitle="{{feverTitle}}" feverList="{{feverList}}"></yukangCode>
 
-    <yukangCode reportList="{{infoList}}"></yukangCode>
+    <yukangCode reportTitle="{{infoTitle}}" reportList="{{infoList}}"></yukangCode>
 
 
     <view class="footer">

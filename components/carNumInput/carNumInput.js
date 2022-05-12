@@ -13,10 +13,10 @@ Component({
         isKeyboard: false,
         isNumberKB: true,
         tapNum: false,
-        keyboardNumber: "1234567890QWERTYUIOPASDFGHJKLZXCVBNM",
+        keyboardNumber: "1234567890QWERTYUPASDFGHJKLZXCVBNM",
         keyboard: "京津冀鲁晋蒙辽吉黑沪苏浙皖闽赣豫鄂湘粤桂琼渝川贵云藏陕甘青宁新港澳台警使领",
         inputPlates: {
-            index0: "渝",
+            index0: "",
             index1: "",
             index2: "",
             index3: "",
@@ -27,22 +27,14 @@ Component({
         },
         inputOnFocusIndex: "",
         isNewEnergy: false,
-        carNum: ""
+        carNum: "",
+        rightCarNum: false
     },
 
     /**
      * 组件的方法列表
      */
     methods: {
-        //新能源
-        changeplate: function () {
-            var that = this;
-            console.log("isNewEnergy", that.data.isNewEnergy);
-            that.setData({
-                isNewEnergy: !that.data.isNewEnergy,
-            });
-            this.checkCarNum();
-        },
         //input
         inputClick: function (t) {
             var that = this;
@@ -75,10 +67,6 @@ Component({
         tapKeyboard: function (t) {
             t.target.dataset.index;
             var a = t.target.dataset.val;
-            //console.log("data",this.data);
-            // console.log('键盘:',a);
-            //console.log("index",t.target.dataset.index);
-            //console.log("focus",this.data.inputOnFocusIndex);
             switch (parseInt(this.data.inputOnFocusIndex)) {
                 case 0:
                     this.setData({
@@ -132,79 +120,107 @@ Component({
                 this.data.inputPlates.index6 + this.data.inputPlates.index7
             console.log('车牌号:', n);
             this.data.carNum = n;
-            this.checkedSubmitButtonEnabled();
-            this.checkCarNum();
-
+            this.checkedKeyboard();
+            if (this.data.carNum.length > 7) {
+                this.setData({
+                    isNewEnergy: true
+                })
+            } else {
+                this.setData({
+                    isNewEnergy: false
+                })
+            }
         },
+
+        //键盘确认按钮点击事件 
+        confirm: function () {
+            var that = this
+            this.checkCarNum(that.data.carNum)
+            if (that.data.rightCarNum) {
+                that.setData({
+                    isKeyboard: false,
+                    isNumberKB: false,
+                    tapNum: false,
+                });
+            }
+        },
+
         //查询停车费
         payBtn: function () {
-            console.log('车牌号:', this.data.carNum);
+            var that = this
+            this.checkCarNum(that.data.carNum)
+            if (that.data.rightCarNum) {
+                console.log('车牌号:', this.data.carNum);
+            }
         },
-        //键盘确认按钮点击事件
+
+        //键盘删除按钮点击事件
         tapSpecBtn: function (t) {
-            var a = this,
-                e = t.target.dataset.index;
-            if (0 == e) {
-                switch (parseInt(this.data.inputOnFocusIndex)) {
-                    case 0:
-                        this.setData({
-                            "inputPlates.index0": "",
-                            inputOnFocusIndex: "0"
-                        });
-                        break;
-                    case 1:
-                        this.setData({
-                            "inputPlates.index1": "",
-                            inputOnFocusIndex: "0"
-                        });
-                        break;
-                    case 2:
-                        this.setData({
-                            "inputPlates.index2": "",
-                            inputOnFocusIndex: "1"
-                        });
-                        break;
-                    case 3:
-                        this.setData({
-                            "inputPlates.index3": "",
-                            inputOnFocusIndex: "2"
-                        });
-                        break;
-                    case 4:
-                        this.setData({
-                            "inputPlates.index4": "",
-                            inputOnFocusIndex: "3"
-                        });
-                        break;
-                    case 5:
-                        this.setData({
-                            "inputPlates.index5": "",
-                            inputOnFocusIndex: "4"
-                        });
-                        break;
-                    case 6:
-                        this.setData({
-                            "inputPlates.index6": "",
-                            inputOnFocusIndex: "5"
-                        });
-                        break;
-                    case 7:
-                        this.setData({
-                            "inputPlates.index7": "",
-                            inputOnFocusIndex: "6"
-                        });
-                }
-                this.checkedSubmitButtonEnabled();
-            } else 1 == e && a.setData({
-                isKeyboard: !1,
-                isNumberKB: !1,
-                inputOnFocusIndex: ""
-            });
+            console.log(t)
+            switch (parseInt(this.data.inputOnFocusIndex)) {
+                case 0:
+                    this.setData({
+                        "inputPlates.index0": "",
+                        inputOnFocusIndex: "0"
+                    });
+                    break;
+                case 1:
+                    this.setData({
+                        "inputPlates.index1": "",
+                        inputOnFocusIndex: "0"
+                    });
+                    break;
+                case 2:
+                    this.setData({
+                        "inputPlates.index2": "",
+                        inputOnFocusIndex: "1"
+                    });
+                    break;
+                case 3:
+                    this.setData({
+                        "inputPlates.index3": "",
+                        inputOnFocusIndex: "2"
+                    });
+                    break;
+                case 4:
+                    this.setData({
+                        "inputPlates.index4": "",
+                        inputOnFocusIndex: "3"
+                    });
+                    break;
+                case 5:
+                    this.setData({
+                        "inputPlates.index5": "",
+                        inputOnFocusIndex: "4"
+                    });
+                    break;
+                case 6:
+                    this.setData({
+                        "inputPlates.index6": "",
+                        inputOnFocusIndex: "5"
+                    });
+                    break;
+                case 7:
+                    this.setData({
+                        "inputPlates.index7": "",
+                        inputOnFocusIndex: "6"
+                    });
+            }
+            this.checkedKeyboard();
             var n = this.data.inputPlates.index0 + this.data.inputPlates.index1 + this.data.inputPlates.index2 + this.data.inputPlates.index3 + this.data.inputPlates.index4 + this.data.inputPlates.index5 +
                 this.data.inputPlates.index6 + this.data.inputPlates.index7
-            //console.log('车牌号:', n);
+            console.log('车牌号:', n);
             this.data.carNum = n;
-            this.checkCarNum();
+            //判断新能源
+            if (this.data.carNum.length > 7) {
+                this.setData({
+                    isNewEnergy: true
+                })
+            } else {
+                this.setData({
+                    isNewEnergy: false
+                })
+            }
         },
         //键盘切换
         checkedKeyboard: function () {
@@ -229,49 +245,22 @@ Component({
                 })
             }
         },
-        checkedSubmitButtonEnabled: function () {
-            this.checkedKeyboard();
-            var t = !0;
-            for (var a in this.data.inputPlates)
-                if ("index7" != a && this.data.inputPlates[a].length < 1) {
-                    t = !1;
-                    break;
-                }
-        },
+
         //校验车牌号-车牌输入限制了正确格式只判断车牌位数
-        checkCarNum: function () {
-            if (this.data.isNewEnergy && this.data.carNum.length < 8) {
-                let res = {
-                    carNum: this.data.carNum,
-                    isPlate: false
-                }
-                this.triggerEvent("setCarNum", res);
-                return false
+        checkCarNum: function (carNum) {
+            var that = this
+            let reg = /^(([京津沪渝冀豫云辽黑湘皖鲁新苏浙赣鄂桂甘晋蒙陕吉闽贵粤青藏川宁琼使领][A-Z](([0-9]{5}[DF])|([DF]([A-HJ-NP-Z0-9])[0-9]{4})))|([京津沪渝冀豫云辽黑湘皖鲁新苏浙赣鄂桂甘晋蒙陕吉闽贵粤青藏川宁琼使领][A-Z][A-HJ-NP-Z0-9]{4}[A-HJ-NP-Z0-9挂学警港澳使领]))$/
+            const careg = reg.test(carNum);
+            if (!careg) {
+                wx.showToast({
+                    icon: 'none',
+                    title: '请输入正确车牌号',
+                })
+            } else {
+                that.setData({
+                    rightCarNum: true
+                });
             }
-            if (!this.data.isNewEnergy) {
-                if (this.data.carNum.length < 7) {
-                    let res = {
-                        carNum: this.data.carNum,
-                        isPlate: false
-                    }
-                    this.triggerEvent("setCarNum", res);
-                    return false
-                } else {
-                    var carNum = this.data.carNum.substr(0, 7);
-                    let res = {
-                        carNum: carNum,
-                        isPlate: true
-                    }
-                    this.triggerEvent("setCarNum", res);
-                    return true;
-                }
-            }
-            let res = {
-                carNum: this.data.carNum,
-                isPlate: true
-            }
-            this.triggerEvent("setCarNum", res);
-            return true;
         }
 
     }

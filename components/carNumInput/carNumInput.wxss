@@ -7,56 +7,16 @@ page {
 .con-query {
   height: 100%;
   width: 100%;
-  border-radius: 8px;
+  border-radius: 16rpx;
   background-color: #e8e9eb;
   display: flex;
   align-items: center;
-
 }
 
-.pages_header {
-  width: 100%;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.pages_header_top {
-  width: 33.3%;
-  height: 60rpx;
-  border-left: 5px solid green;
-  border-right: 5px solid green;
-}
-
-.pages_header_btm {
-  width: 70%;
-  background: green;
-  height: 120rpx;
-  line-height: 120rpx;
-  text-align: center;
-  color: white;
-  border-radius: 10rpx;
-  font-weight: normal;
-  font-size: 16pt;
-}
-
-.tips {
-  text-align: center;
-  margin: 60rpx 0;
-  font-size: 12pt;
-  color: #888888;
-
-}
-
-.plate-input-text {
-  text-align: center;
-  line-height: 90rpx;
-  color: #f39900;
-}
 
 .plate-input-flag {
   float: right;
-  font-size: 12px;
+  font-size: 24rpx;
 }
 
 .plate-input-flag .new-energy {
@@ -100,7 +60,7 @@ page {
   width: 80%;
   height: 80rpx;
   margin: 0 auto;
-  border-radius: 10px;
+  border-radius: 20rpx;
   color: #fff;
   text-align: center;
   line-height: 80rpx;
@@ -110,7 +70,7 @@ page {
 .plate-input-body {
   height: 350rpx;
   width: 88%;
-  margin: 0 6% 2px 6%;
+  margin: 0 6% 4rpx 6%;
   background-color: #fff;
   border-radius: 5px;
 }
@@ -140,7 +100,7 @@ page {
 .plate-nums-foc {
   flex: 1;
   border: 1rpx solid #25cbe1;
-  box-shadow: 0px 0px 2px 1px #6fddeb;
+  box-shadow: 0rpx 0rpx 4rpx 2rpx #6fddeb;
   margin: 0 5rpx 0 5rpx;
   display: flex;
   align-items: center;
@@ -161,7 +121,7 @@ page {
   text-align: center;
   height: 100%;
   box-sizing: border-box;
-  border-radius: 2px;
+  border-radius: 4rpx;
 }
 
 .plate-num-text {
@@ -173,11 +133,6 @@ page {
   font-weight: 300;
 }
 
-.new-plate-input-content {
-  display: flex;
-  flex-direction: row;
-  height: 100rpx;
-}
 
 .kb_top {
   align-content: relative;
@@ -220,10 +175,11 @@ page {
   margin: 10rpx 5rpx;
   color: #333;
   border-radius: 5rpx;
-  /* box-shadow: 0rpx 2rpx 0rpx #a9a9a9; */
 }
 
-
+.td:active {
+  background: #07c4dd;
+}
 
 .td_nor {
   flex: 1 1 6%;
@@ -256,22 +212,8 @@ page {
   border-radius: 10rpx;
 }
 
-
-
 .del-img {
   display: block;
   width: 50rpx;
   height: 50rpx;
-}
-
-.color-white {
-  color: #FFFFFF;
-}
-
-.color-red {
-  color: #ff0000;
-}
-
-.bule {
-  color: #0000ff;
 }

@@ -31,11 +31,7 @@
             <view class="{{inputOnFocusIndex=='7'?'plate-nums-foc':'plate-nums-first'}}" wx:if="{{isNewEnergy}}">
                 <text bindtap="inputClick" class="plate-num-text" data-id="7">{{inputPlates.index7}}</text>
             </view>
-            <view class='plate-input-flag' bindtap='changeplate'>
-                <view wx:if="{{isNewEnergy}}" class="plate-nums-first new-energy">
-                    <image mode="scaleToFill" src="../../assets/reduce.png"></image>
-                    新能源
-                </view>
+            <view class='plate-input-flag'>
                 <view wx:if="{{!isNewEnergy}}" class="plate-nums-first energy ">
                     <image mode="scaleToFill" src="../../assets/add.png"></image>
                     新能源
@@ -45,36 +41,35 @@
         <view class="pay">点击这里为渝A****41缴费</view>
         <view class="payBtn" bindtap="payBtn">查询停车费</view>
     </view>
-
 </view>
 
 <!-- 键盘弹框 -->
 <view class="keyboard" wx:if="{{isKeyboard}}">
     <view class="kb_top">
-        <text catchtap="tapSpecBtn" data-index="1">确认</text>
+        <text catchtap="confirm" data-index="1">确认</text>
     </view>
 
     <!-- 地区 -->
     <view style="width:100%; text-align:center;" wx:if="{{isNumberKB}}">
         <view style="width:99%;display:flex;text-align:center;margin:0 auto;padding-top: 10rpx;">
-            <view catchtap="tapKeyboard" class="td td_nor" data-index="{{idx}}" data-val="{{itemName}}" wx:if="{{idx<=9}}" wx:for="{{keyboard}}" wx:for-index="idx" wx:for-item="itemName" wx:key="{{itemName}}">
+            <view catchtap="tapKeyboard" class="td td_nor" data-index="{{idx}}" data-val="{{itemName}}" wx:if="{{idx<=9}}" wx:for="{{keyboard}}" wx:for-index="idx" wx:for-item="itemName" wx:key="index">
                 {{itemName}}
             </view>
         </view>
         <view style="display:flex;text-align:center; width:96%;margin:0 auto">
-            <view catchtap="tapKeyboard" class="td td_nor" data-index="{{idx}}" data-val="{{itemName}}" wx:if="{{idx<=19&&idx>9}}" wx:for="{{keyboard}}" wx:for-index="idx" wx:for-item="itemName" wx:key="{{itemName}}">
+            <view catchtap="tapKeyboard" class="td td_nor" data-index="{{idx}}" data-val="{{itemName}}" wx:if="{{idx<=19&&idx>9}}" wx:for="{{keyboard}}" wx:for-index="idx" wx:for-item="itemName" wx:key="index">
                 {{itemName}}
             </view>
         </view>
 
         <view style="display:flex;text-align:center; width:93%;margin:0 auto">
-            <view catchtap="tapKeyboard" class="td td_nor" data-index="{{idx}}" data-val="{{itemName}}" wx:if="{{idx<=29&&idx>19}}" wx:for="{{keyboard}}" wx:for-index="idx" wx:for-item="itemName" wx:key="{{itemName}}">
+            <view catchtap="tapKeyboard" class="td td_nor" data-index="{{idx}}" data-val="{{itemName}}" wx:if="{{idx<=29&&idx>19}}" wx:for="{{keyboard}}" wx:for-index="idx" wx:for-item="itemName" wx:key="index">
                 {{itemName}}
             </view>
         </view>
 
         <view style="display:flex; width:80%;margin-left:15px;text-align:center;">
-            <view catchtap="tapKeyboard" class="td td_nor" data-index="{{idx}}" data-val="{{itemName}}" wx:if="{{idx>29}}" wx:for="{{keyboard}}" wx:for-index="idx" wx:for-item="itemName" wx:key="{{itemName}}">
+            <view catchtap="tapKeyboard" class="td td_nor" data-index="{{idx}}" data-val="{{itemName}}" wx:if="{{idx>29}}" wx:for="{{keyboard}}" wx:for-index="idx" wx:for-item="itemName" wx:key="index">
                 {{itemName}}
             </view>
         </view>
@@ -87,30 +82,30 @@
     <!-- 数字及字母 -->
     <view style="width:100%; text-align:center;" wx:if="{{!isNumberKB}}">
         <view style="width:99%;display:flex;text-align:center;margin:0 auto;">
-            <view class="td td_num board_bg" wx:if="{{!tapNum&&idx<=9}}" wx:for="{{keyboardNumber}}" wx:for-index="idx" wx:for-item="itemName" wx:key="{{itemName}}">
+            <view class="td td_num board_bg" wx:if="{{!tapNum&&idx<=9}}" wx:for="{{keyboardNumber}}" wx:for-index="idx" wx:for-item="itemName" wx:key="index">
                 {{itemName}}
             </view>
         </view>
         <view style="width:99%;display:flex;text-align:center;margin:0 auto">
-            <view catchtap="tapKeyboard" class="td td_num" data-index="{{idx}}" data-val="{{itemName}}" wx:if="{{tapNum&&idx<=9}}" wx:for="{{keyboardNumber}}" wx:for-index="idx" wx:for-item="itemName" wx:key="{{itemName}}">
+            <view catchtap="tapKeyboard" class="td td_num" data-index="{{idx}}" data-val="{{itemName}}" wx:if="{{tapNum&&idx<=9}}" wx:for="{{keyboardNumber}}" wx:for-index="idx" wx:for-item="itemName" wx:key="index">
                 {{itemName}}
             </view>
         </view>
 
         <view style="width:96%;display:flex;text-align:center;margin:0 auto">
-            <view catchtap="tapKeyboard" class="td td_num" data-index="{{idx}}" data-val="{{itemName}}" wx:if="{{idx>9&&idx<=19}}" wx:for="{{keyboardNumber}}" wx:for-index="idx" wx:for-item="itemName" wx:key="{{itemName}}">
+            <view catchtap="tapKeyboard" class="td td_num" data-index="{{idx}}" data-val="{{itemName}}" wx:if="{{idx>9&&idx<=18}}" wx:for="{{keyboardNumber}}" wx:for-index="idx" wx:for-item="itemName" wx:key="index">
                 {{itemName}}
             </view>
         </view>
 
         <view style="width:90%;display:flex;text-align:center;margin:0 auto">
-            <view catchtap="tapKeyboard" class="td td_num" data-index="{{idx}}" data-val="{{itemName}}" wx:if="{{idx>19&&idx<=28}}" wx:for="{{keyboardNumber}}" wx:for-index="idx" wx:for-item="itemName" wx:key="{{itemName}}">
+            <view catchtap="tapKeyboard" class="td td_num" data-index="{{idx}}" data-val="{{itemName}}" wx:if="{{idx>18&&idx<=26}}" wx:for="{{keyboardNumber}}" wx:for-index="idx" wx:for-item="itemName" wx:key="index">
                 {{itemName}}
             </view>
 
         </view>
         <view style="width:70%;display:flex;margin-left: 80rpx;">
-            <view catchtap="tapKeyboard" class="td td_num" data-index="{{idx}}" data-val="{{itemName}}" wx:if="{{idx>28}}" wx:for="{{keyboardNumber}}" wx:for-index="idx" wx:for-item="itemName" wx:key="{{itemName}}">
+            <view catchtap="tapKeyboard" class="td td_num" data-index="{{idx}}" data-val="{{itemName}}" wx:if="{{idx>26}}" wx:for="{{keyboardNumber}}" wx:for-index="idx" wx:for-item="itemName" wx:key="index">
                 {{itemName}}
             </view>
         </view>

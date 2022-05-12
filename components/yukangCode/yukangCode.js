@@ -7,9 +7,21 @@ Component({
             type: Array,
             value: []
         },
+        reportTitle: {
+            type: String,
+            value: ""
+        },
         reportList: {
             type: Array,
             value: []
+        },
+        serverTitle: {
+            type: String,
+            value: ""
+        },
+        feverTitle: {
+            type: String,
+            value: ""
         },
         serverList: {
             type: Array,
