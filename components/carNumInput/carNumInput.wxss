@@ -107,7 +107,6 @@ page {
   justify-content: center;
   text-align: center;
   height: 100%;
-  box-sizing: border-box;
   border-radius: 4rpx;
 }
 
@@ -120,7 +119,6 @@ page {
   justify-content: center;
   text-align: center;
   height: 100%;
-  box-sizing: border-box;
   border-radius: 4rpx;
 }
 
@@ -128,7 +126,6 @@ page {
   flex: 1;
   line-height: 70rpx;
   height: 100%;
-  box-sizing: border-box;
   font-size: 40rpx;
   font-weight: 300;
 }

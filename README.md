@@ -20,11 +20,8 @@
 3.示例：
 ## list:
 
-![](https://s1.ax1x.com/2022/05/09/OGn5LV.png)
+![](https://s1.ax1x.com/2022/05/13/OsS0PO.md.png)
 
-## reportList:
-
-![](https://s1.ax1x.com/2022/05/07/OQeAtx.md.png)
 
 
 # 车牌号
@@ -39,4 +36,4 @@
 
 ## carNumInput:
 
-![](https://s1.ax1x.com/2022/05/07/OQegvF.png)
+![](https://s1.ax1x.com/2022/05/13/OsSdIK.png)
