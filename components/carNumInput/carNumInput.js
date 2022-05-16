@@ -11,10 +11,18 @@ Component({
      */
     data: {
         isKeyboard: false,
-        isNumberKB: true,
-        tapNum: false,
-        keyboardNumber: "1234567890QWERTYUPASDFGHJKLZXCVBNM",
-        keyboard: "京津冀鲁晋蒙辽吉黑沪苏浙皖闽赣豫鄂湘粤桂琼渝川贵云藏陕甘青宁新港澳台警使领",
+        keyboardNumber: {
+            index0: "1234567890",
+            index1: "QWERTYUPA",
+            index2: "SDFGHJKL",
+            index3: "ZXCVBNM"
+        },
+        keyboard: {
+            index0: "京津冀鲁晋蒙辽吉黑沪",
+            index1: "苏浙皖闽赣豫鄂湘粤桂",
+            index2: "琼渝川贵云藏陕甘青宁",
+            index3: "新港澳台警使领"
+        },
         inputPlates: {
             index0: "",
             index1: "",
@@ -38,30 +46,12 @@ Component({
         //input
         inputClick: function (t) {
             var that = this;
-            if (t.target.dataset.id == 0) {
+            if (t.target.dataset.id) {
                 that.setData({
                     inputOnFocusIndex: t.target.dataset.id,
-                    isNumberKB: true,
                     isKeyboard: true,
-                    tapNum: false,
                 })
             };
-            if (t.target.dataset.id == 1) {
-                that.setData({
-                    inputOnFocusIndex: t.target.dataset.id,
-                    isNumberKB: false,
-                    isKeyboard: true,
-                    tapNum: false,
-                })
-            }
-            if (t.target.dataset.id > 1) {
-                that.setData({
-                    inputOnFocusIndex: t.target.dataset.id,
-                    isNumberKB: false,
-                    isKeyboard: true,
-                    tapNum: true,
-                })
-            }
         },
         //键盘点击事件
         tapKeyboard: function (t) {
@@ -120,7 +110,6 @@ Component({
                 that.data.inputPlates.index6 + that.data.inputPlates.index7
             console.log('车牌号:', n);
             that.data.carNum = n;
-            that.checkedKeyboard();
             that.isNewEnergyJudge();
         },
         //判断新能源
@@ -134,8 +123,6 @@ Component({
                 if (that.data.rightCarNum) {
                     that.setData({
                         isKeyboard: false,
-                        isNumberKB: false,
-                        tapNum: false,
                     })
                 }
             } else {
@@ -151,9 +138,7 @@ Component({
             that.checkCarNum(that.data.carNum)
             if (that.data.rightCarNum) {
                 that.setData({
-                    isKeyboard: false,
-                    isNumberKB: false,
-                    tapNum: false,
+                    isKeyboard: false
                 });
             }
         },
@@ -268,35 +253,13 @@ Component({
                         });
                     }
             }
-            that.checkedKeyboard();
             var n = that.data.inputPlates.index0 + that.data.inputPlates.index1 + that.data.inputPlates.index2 + that.data.inputPlates.index3 + that.data.inputPlates.index4 + that.data.inputPlates.index5 +
                 that.data.inputPlates.index6 + that.data.inputPlates.index7
             console.log('车牌号:', n);
             that.data.carNum = n;
             that.isNewEnergyJudge()
         },
-        //键盘切换
-        checkedKeyboard: function () {
-            var that = this;
-            if (that.data.inputOnFocusIndex == 0) {
-                that.setData({
-                    tapNum: false,
-                    isNumberKB: true
-                })
-            }
-            if (that.data.inputOnFocusIndex == 1) {
-                that.setData({
-                    tapNum: false,
-                    isNumberKB: false
-                })
-            }
-            if (that.data.inputOnFocusIndex > 1) {
-                that.setData({
-                    tapNum: true,
-                    isNumberKB: false
-                })
-            }
-        },
+
 
         //校验车牌号
         checkCarNum: function (carNum) {

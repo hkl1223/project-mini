@@ -50,26 +50,26 @@
     </view>
 
     <!-- 地区 -->
-    <view style="width:100%; text-align:center;" wx:if="{{isNumberKB}}">
+    <view style="width:100%; text-align:center;" wx:if="{{inputOnFocusIndex==0}}">
         <view style="width:99%;display:flex;text-align:center;margin:0 auto;padding-top: 10rpx;">
-            <view catchtap="tapKeyboard" class="td td_nor" data-index="{{idx}}" data-val="{{itemName}}" wx:if="{{idx<=9}}" wx:for="{{keyboard}}" wx:for-index="idx" wx:for-item="itemName" wx:key="index">
+            <view catchtap="tapKeyboard" class="td td_nor" data-index="{{idx}}" data-val="{{itemName}}" wx:for="{{keyboard.index0}}" wx:for-index="idx" wx:for-item="itemName" wx:key="index">
                 {{itemName}}
             </view>
         </view>
         <view style="display:flex;text-align:center; width:96%;margin:0 auto">
-            <view catchtap="tapKeyboard" class="td td_nor" data-index="{{idx}}" data-val="{{itemName}}" wx:if="{{idx<=19&&idx>9}}" wx:for="{{keyboard}}" wx:for-index="idx" wx:for-item="itemName" wx:key="index">
+            <view catchtap="tapKeyboard" class="td td_nor" data-index="{{idx}}" data-val="{{itemName}}" wx:for="{{keyboard.index1}}" wx:for-index="idx" wx:for-item="itemName" wx:key="index">
                 {{itemName}}
             </view>
         </view>
 
         <view style="display:flex;text-align:center; width:93%;margin:0 auto">
-            <view catchtap="tapKeyboard" class="td td_nor" data-index="{{idx}}" data-val="{{itemName}}" wx:if="{{idx<=29&&idx>19}}" wx:for="{{keyboard}}" wx:for-index="idx" wx:for-item="itemName" wx:key="index">
+            <view catchtap="tapKeyboard" class="td td_nor" data-index="{{idx}}" data-val="{{itemName}}" wx:for="{{keyboard.index2}}" wx:for-index="idx" wx:for-item="itemName" wx:key="index">
                 {{itemName}}
             </view>
         </view>
 
         <view style="display:flex; width:80%;margin-left:15px;text-align:center;">
-            <view catchtap="tapKeyboard" class="td td_nor" data-index="{{idx}}" data-val="{{itemName}}" wx:if="{{idx>29}}" wx:for="{{keyboard}}" wx:for-index="idx" wx:for-item="itemName" wx:key="index">
+            <view catchtap="tapKeyboard" class="td td_nor" data-index="{{idx}}" data-val="{{itemName}}" wx:for="{{keyboard.index3}}" wx:for-index="idx" wx:for-item="itemName" wx:key="index">
                 {{itemName}}
             </view>
         </view>
@@ -80,32 +80,32 @@
     </view>
 
     <!-- 数字及字母 -->
-    <view style="width:100%; text-align:center;" wx:if="{{!isNumberKB}}">
+    <view style="width:100%; text-align:center;" wx:if="{{inputOnFocusIndex>0}}">
         <view style="width:99%;display:flex;text-align:center;margin:0 auto;">
-            <view class="td td_num board_bg" wx:if="{{!tapNum&&idx<=9}}" wx:for="{{keyboardNumber}}" wx:for-index="idx" wx:for-item="itemName" wx:key="index">
+            <view class="td_num board_bg" wx:if="{{inputOnFocusIndex==1}}" wx:for="{{keyboardNumber.index0}}" wx:for-index="idx" wx:for-item="itemName" wx:key="index">
                 {{itemName}}
             </view>
         </view>
         <view style="width:99%;display:flex;text-align:center;margin:0 auto">
-            <view catchtap="tapKeyboard" class="td td_num" data-index="{{idx}}" data-val="{{itemName}}" wx:if="{{tapNum&&idx<=9}}" wx:for="{{keyboardNumber}}" wx:for-index="idx" wx:for-item="itemName" wx:key="index">
+            <view catchtap="tapKeyboard" class="td td_num" data-index="{{idx}}" data-val="{{itemName}}" wx:if="{{inputOnFocusIndex>1}}" wx:for="{{keyboardNumber.index0}}" wx:for-index="idx" wx:for-item="itemName" wx:key="index">
                 {{itemName}}
             </view>
         </view>
 
         <view style="width:96%;display:flex;text-align:center;margin:0 auto">
-            <view catchtap="tapKeyboard" class="td td_num" data-index="{{idx}}" data-val="{{itemName}}" wx:if="{{idx>9&&idx<=18}}" wx:for="{{keyboardNumber}}" wx:for-index="idx" wx:for-item="itemName" wx:key="index">
+            <view catchtap="tapKeyboard" class="td td_num" data-index="{{idx}}" data-val="{{itemName}}" wx:for="{{keyboardNumber.index1}}" wx:for-index="idx" wx:for-item="itemName" wx:key="index">
                 {{itemName}}
             </view>
         </view>
 
         <view style="width:90%;display:flex;text-align:center;margin:0 auto">
-            <view catchtap="tapKeyboard" class="td td_num" data-index="{{idx}}" data-val="{{itemName}}" wx:if="{{idx>18&&idx<=26}}" wx:for="{{keyboardNumber}}" wx:for-index="idx" wx:for-item="itemName" wx:key="index">
+            <view catchtap="tapKeyboard" class="td td_num" data-index="{{idx}}" data-val="{{itemName}}" wx:for="{{keyboardNumber.index2}}" wx:for-index="idx" wx:for-item="itemName" wx:key="index">
                 {{itemName}}
             </view>
 
         </view>
         <view style="width:70%;display:flex;margin-left: 80rpx;">
-            <view catchtap="tapKeyboard" class="td td_num" data-index="{{idx}}" data-val="{{itemName}}" wx:if="{{idx>26}}" wx:for="{{keyboardNumber}}" wx:for-index="idx" wx:for-item="itemName" wx:key="index">
+            <view catchtap="tapKeyboard" class="td td_num" data-index="{{idx}}" data-val="{{itemName}}" wx:for="{{keyboardNumber.index3}}" wx:for-index="idx" wx:for-item="itemName" wx:key="index">
                 {{itemName}}
             </view>
         </view>
